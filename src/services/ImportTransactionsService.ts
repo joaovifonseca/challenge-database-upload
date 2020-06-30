@@ -87,57 +87,6 @@ class ImportTransactionsService {
 
     return createdTransaction;
   }
-
-  // async execute(filePath: string): Promise<Transaction[]> {
-  //   const createTransactionService = new CreateTransactionService();
-
-  //   const readCSVStream = fs.createReadStream(filePath);
-
-  //   const parseStream = csvParse({
-  //     from_line: 2,
-  //     ltrim: true,
-  //     rtrim: true,
-  //   });
-
-  //   const parseCSV = readCSVStream.pipe(parseStream);
-
-  //   const lines: TransactionCsv[] = [];
-
-  //   await parseCSV.on('data', async line => {
-  //     const title = line[0];
-  //     const type = line[1];
-  //     const value = Number(line[2]);
-  //     const category = line[3];
-  //     if (!title || !type || !value || !category) return;
-  //     lines.push({
-  //       title,
-  //       type,
-  //       value,
-  //       category,
-  //     });
-  //   });
-
-  //   await new Promise(resolve => {
-  //     parseCSV.on('end', resolve);
-  //   });
-
-  //   const transactions: Transaction[] = [];
-
-  //   await lines.forEach(async transaction => {
-  //     const { title, type, value, category } = transaction;
-  //     const transactionSaved = await createTransactionService.execute({
-  //       title,
-  //       type,
-  //       value,
-  //       category,
-  //     });
-  //     console.log(transactionSaved);
-
-  //     // transactions.push(transactionSaved);
-  //   });
-
-  //   return transactions;
-  // }
 }
 
 export default ImportTransactionsService;
